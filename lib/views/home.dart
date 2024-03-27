@@ -29,7 +29,6 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       isLoading = false;
     });
-    print(recipes);
   }
 
   @override
@@ -45,15 +44,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ],),
       ),
       body: isLoading
-          ? Center(child: CircularProgressIndicator())
+          ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
             itemCount: recipes.length,
             itemBuilder: (context, index) {
               return RecipeCard(
-                  title: recipes[index].title,
-                  rating: recipes[index].likes.toString(),
-                  cookTime: recipes[index].time.toString(),
-                  thumbnailUrl: recipes[index].image);
+                  recipe: recipes[index]
+              );
             },
       )
     );

@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_list/models/recipe.dart';
+import 'package:recipe_list/views/widgets/recipe_details.dart';
 
 class RecipeCard extends StatelessWidget {
-  final String title;
-  final String rating;
-  final String cookTime;
-  final String thumbnailUrl;
+  final Recipe recipe;
 
   const RecipeCard({
     super.key,
-    required this.title,
-    required this.rating,
-    required this.cookTime,
-    required this.thumbnailUrl
+    required this.recipe
   });
 
   /// Widget structure:
@@ -28,7 +24,14 @@ class RecipeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onDoubleTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => RecipeDetails(recipe: recipe)),
+        );
+      },
+      child: Container(
       margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 10),
       width: MediaQuery.of(context).size.width,
       height: 180,
@@ -51,7 +54,7 @@ class RecipeCard extends StatelessWidget {
               Colors.black.withOpacity(0.5),
               BlendMode.multiply,
           ),
-          image: NetworkImage(thumbnailUrl),
+          image: NetworkImage(recipe.image),
           fit: BoxFit.cover,
         ),
       ),
@@ -63,9 +66,10 @@ class RecipeCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5.0),
               child: Text(
-                title,
+                recipe.title,
                 style: const TextStyle(
                   fontSize: 19,
+                  color: Colors.white,
                 ),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
@@ -93,7 +97,11 @@ class RecipeCard extends StatelessWidget {
                        size: 18,
                      ),
                      const SizedBox(width: 7),
-                     Text(rating),
+                     Text(recipe.likes.toString(),
+                       style: const TextStyle(
+                         fontSize: 19,
+                         color: Colors.white,
+                       ),),
                    ],
                  ),
                ),
@@ -112,7 +120,11 @@ class RecipeCard extends StatelessWidget {
                        size: 18,
                      ),
                      const SizedBox(width: 7),
-                     Text(cookTime)
+                     Text(recipe.time.toString(),
+                       style: const TextStyle(
+                         fontSize: 19,
+                         color: Colors.white,
+                       ),)
                    ],
                  ),
                ),
@@ -121,6 +133,7 @@ class RecipeCard extends StatelessWidget {
           ),
         ],
       ),
+    )
     );
   }
 }

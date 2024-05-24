@@ -24,8 +24,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> getRecipes() async {
-    // recipes = await RecipeApi.getRecipes();
-    recipes = await RecipeApi.getRecipesFromFile();
+    recipes = await RecipeApi.getRecipes();
+    // recipes = await RecipeApi.getRecipesFromFile();
     setState(() {
       isLoading = false;
     });

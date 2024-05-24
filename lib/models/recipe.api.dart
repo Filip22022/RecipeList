@@ -13,8 +13,8 @@ class RecipeApi {
         {"number": amount, "limitLicense": "true"});
 
     final response = await http.get(uri, headers: {
-      "x-rapidapi-key": "1be082b8dmsh89a67a476a9fe0cp15bde3jsna68b1b57705d",
-      "x-rapidapi-host": "poonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      "x-rapidapi-key": "81be082b8dmsh89a67a476a9fe0cp15bde3jsna68b1b57705d",
+      "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
       "useQueryString": "true"
     });
 

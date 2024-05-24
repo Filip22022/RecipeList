@@ -27,10 +27,10 @@ class Recipe {
       pricePerServing: json['pricePerServing'] as num,
       servings: json['servings'] as int,
       title: json['title'] as String,
-      image: json['image'] as String,
+      image: json['image'] as String? ?? '',
       description: json['summary'] as String,
       likes: json['aggregateLikes'] as int,
-      time: json['cookingMinutes'] as int);
+      time: json['readyInMinutes'] as int);
   }
 
   static List<Recipe> recipesFromSnapshot(List snapshot) {

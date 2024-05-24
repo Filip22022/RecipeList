@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipe_list/theme/theme.dart';
 import 'package:recipe_list/views/home.dart';
 
 void main() {
@@ -13,13 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Recipe List',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-        useMaterial3: true,
-        textTheme: const TextTheme(
-          bodyMedium: TextStyle(color: Colors.black)
-        ),
-      ),
+      theme: darkMode,
       home: const MyHomePage(),
     );
   }

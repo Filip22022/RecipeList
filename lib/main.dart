@@ -14,7 +14,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Recipe List',
       debugShowCheckedModeBanner: false,
-      theme: darkMode,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        useMaterial3: true,
+        textTheme: const TextTheme(
+            bodyMedium: TextStyle(color: Colors.black)
+        ),
+      ),
       home: const MyHomePage(),
     );
   }
